@@ -29,6 +29,8 @@
     <link href="{{ asset('dashboard/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('dashboard/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
+
+
     <!-- Template Main CSS File -->
     <link href="{{ asset('dashboard/assets/css/style.css') }}" rel="stylesheet">
 
@@ -56,6 +58,19 @@
     <!-- End Sidebar-->
 
     <main id="main" class="main">
+
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">There's something wrong</h4>
+                <hr>
+                <p>
+                    @foreach ($errors->all as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </p>
+            </div>
+        @endif
+
         @yield('content')
     </main><!-- End #main -->
 
@@ -77,6 +92,46 @@
     <script src="{{ asset('dashboard/assets/vendor/php-email-form/validate.js') }}"></script>
 
     <!-- Template Main JS File -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script>
+        //sweetalert for success or error message
+        @if (session()->has('success'))
+            swal({
+                type: "success",
+                icon: "success",
+                title: "BERHASIL!",
+                text: "{{ session('success') }}",
+                timer: 5000,
+                showConfirmButton: false,
+                showCancelButton: false,
+                buttons: false,
+            });
+        @elseif (session()->has('error'))
+            swal({
+                type: "error",
+                icon: "error",
+                title: "GAGAL!",
+                text: "{{ session('error') }}",
+                timer: 5000,
+                showConfirmButton: false,
+                showCancelButton: false,
+                buttons: false,
+            });
+        @elseif (session()->has('info'))
+            swal({
+                type: "info",
+                icon: "info",
+                title: "INFO!",
+                text: "{{ session('info') }}",
+                timer: 5000,
+                showConfirmButton: false,
+                showCancelButton: false,
+                buttons: false,
+            });
+        @endif
+    </script>
+
     <script src="{{ asset('dashboard/assets/js/main.js') }}"></script>
 
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v55bfa2fee65d44688e90c00735ed189a1713218998793"
