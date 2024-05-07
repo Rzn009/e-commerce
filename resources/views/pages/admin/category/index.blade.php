@@ -15,7 +15,7 @@
             </nav>
 
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModalCategory">
+            <button type="button" class="btn btn-primary my-auto" data-bs-toggle="modal" data-bs-target="#createModalCategory">
                 <i class="bi bi-plus-circle"></i>
                 Add Category
             </button>

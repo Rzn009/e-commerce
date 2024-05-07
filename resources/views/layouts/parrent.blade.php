@@ -64,7 +64,7 @@
                 <h4 class="alert-heading">There's something wrong</h4>
                 <hr>
                 <p>
-                    @foreach ($errors->all as $error)
+                    @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </p>

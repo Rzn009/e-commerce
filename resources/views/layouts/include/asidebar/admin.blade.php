@@ -10,18 +10,17 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('admin.category.*') ?  '' : 'collapsed'}} " data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ request()->routeIs('admin.category.*','admin.product.index','admin.product.gallery.index') ?  '' : 'collapsed'}} " data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Products</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="components-nav" class="nav-content collapse {{ request()->routeIs('admin.category.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+            <ul id="components-nav" class="nav-content collapse {{ request()->routeIs('admin.category.index','admin.product.index','admin.product.gallery.index') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('admin.category.index')}}" 
-                    class="{{ request()->routeIs('admin.category.index') ? 'active' : ''  }}">
+                    <a href="{{route('admin.category.index')}}" class="{{ request()->routeIs('admin.category.index') ? 'active' : '' }}">
                         <i class="bi bi-circle"></i><span>Category</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('admin.category.index')}}">
+                    <a href="{{ route('admin.product.index') }}" class="{{ request()->routeIs('admin.product.index' ,'admin.product.gallery.*') ? 'active' : '' }}">
                         <i class="bi bi-circle"></i><span>Data Product</span>
                     </a>
                 </li>
