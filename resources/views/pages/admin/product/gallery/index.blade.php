@@ -22,6 +22,9 @@
                     <i class="bi bi-plus-circle"> Product gallery</i>
                 </button>
                 @include('pages.admin.product.gallery.modal-create')
+                <a href="{{ route('admin.product.index') }}" class="btn btn-info">
+                    <i  class="bi bi-back"></i>
+                </a>
             </div>
 
 
@@ -34,11 +37,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Image</td>
-                        <td>Action</td>
-                    </tr>
+                    @forelse ($product->product_gallery as $row)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td class="flex justify-center">
+                                <img src="{{ url('storage/product/gallery/', $row->image) }}" alt="no image" srcset=""
+                                    class="rounded-circle w-25">
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.product.gallery.destroy' ,[$product->id, $row->id]) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?')">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3" class="text-center">Data empity</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
 
