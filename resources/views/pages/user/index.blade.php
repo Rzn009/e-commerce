@@ -10,6 +10,10 @@
     </div>
     <div class="card-body">
         
+        <a href="{{ route('user.changePassword') }}" class="btn btn-warning">
+            <i class="bi bi-pencil-fill"></i>
+        </a>
+
     </div>
 </div>
 

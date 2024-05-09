@@ -26,6 +26,11 @@
                                 <span class="text-danger small pt-1 fw-bold">{{ Auth::user()->email }}</span>
 
                             </div>
+                            <div class="ps-3">
+                                <a href="" class="btn btn-danger">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                            </div>
                         </div>
 
                     </div>
