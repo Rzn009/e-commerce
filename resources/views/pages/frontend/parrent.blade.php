@@ -13,15 +13,15 @@
     <meta property="og:image" content="" />
 
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="apple-touch-icon" href="images/content/favicon.png" />
+    <link rel="apple-touch-icon" href="{{ asset('frontend/images/content/favicon.png') }}" />
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" href="images/content/favicon.png" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/main.css')}}" />
+    <link rel="icon" href="{{ asset('frontend/images/content/favicon.png')}}" />
 
     <meta name="theme-color" content="#000" />
     <link rel="icon" href="favicon.ico">
-    <link href="css/app.minify.css" rel="stylesheet">
+    <link href="{{ asset('frontend/css/app.minify.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
         <div class="container mx-auto py-5">
             <div class="flex flex-stretch items-center">
                 <div class="w-56 items-center flex">
-                    <img src="images/content/logo.png" alt="Luxspace | Fulfill your house with beautiful furniture" />
+                    <img src="{{asset('frontend/images/content/logo.png')}}" alt="Luxspace | Fulfill your house with beautiful furniture" />
                 </div>
                 <div class="w-full"></div>
                 <div class="w-auto">
@@ -528,7 +528,7 @@
         ga("send", "pageview");
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
-    <script src="js/app.js"></script>
+    <script src="{{ asset('frontend/js/app.js')}}"></script>
 </body>
 
 </html>
