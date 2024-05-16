@@ -68,7 +68,7 @@ class ProductGallyerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('pages.admin.product.gallery.edit');
     }
 
     /**

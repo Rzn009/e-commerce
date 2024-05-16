@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\Frontend\FrontendController::class , 'index']);
+Route::get('/detailProduct/{slug}', [\App\Http\Controllers\Frontend\FrontendController::class, 'deatailProduct'])->name('deatail.product');
 
 Auth::routes();
 
@@ -18,6 +19,8 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
     Route::get('/listUser', [\App\Http\Controllers\Admin\Dashboard::class, 'listUser'])->name('listUser');
     Route::get('/listUser', [\App\Http\Controllers\User\Dashboard::class, 'listUser'])->name('listUser');
     Route::put('/reset-password/{id}', [\App\Http\Controllers\Admin\Dashboard::class, 'resetPassword'])->name('resetPassword');
+    Route::get('/change-password', [\App\Http\Controllers\Admin\Dashboard::class, 'changePassword'])->name('changePassword');
+    
     Route::resource('/category', CategoryController::class)->except(['create', 'show', 'edit']);
     Route::resource('/product', ProductController::class);
     Route::resource('/product.gallery', ProductGallyerController::class)->except(['create', 'show', 'edit', 'update']);

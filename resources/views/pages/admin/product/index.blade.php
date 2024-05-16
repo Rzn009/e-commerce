@@ -30,8 +30,8 @@
                     <tr>
                         <th>No .</th>
                         <th>Name</th>
-                        <th>pirce</th>
                         <th>category</th>
+                        <th>pirce</th>
                         <th>Action</th>
                     </tr>
                 </thead>

@@ -1,6 +1,6 @@
 @extends('layouts.parrent')
 
-@section('title' , 'Create - Product')
+@section('title', 'Create - Product')
 
 @section('content')
     <div class="card p-4">
@@ -32,12 +32,10 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <label for="productDescription" class="form-label">Description</label>
-                    <div class="quill-editor-default">
-                        <textarea class="form-control" aria-label="With textarea" id="productDescription" name="description">{{ old('description') }}</textarea>
-                    </div>
+                    <label for="description" class="form-label">description</label>
+                    <input  class="form-control" id="description" name="description" value="{{ old('description') }}">
                 </div>
-
+                
 
 
             </div>
@@ -47,4 +45,6 @@
             </div>
         </form>
     </div>
+
+
 @endsection

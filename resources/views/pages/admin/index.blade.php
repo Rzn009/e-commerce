@@ -66,7 +66,7 @@
                 <div class="card info-card sales-card">
 
                     <div class="card-body">
-                        <h5 class="card-title">Dashboard <span>| This Year <span class="current-time"></span></span></h5>
+                        <h5 class="card-title">Product <span>| This Year <span class="current-time"></span></span></h5>
 
                         <div class="d-flex align-items-center">
                             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">

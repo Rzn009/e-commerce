@@ -34,6 +34,10 @@ class Dashboard extends Controller
         return view('pages.admin.adminUser.listUser', compact('user'));
 
     }
+    public function changePassword()
+    {
+        return view('pages.admin.edit');
+    }
     
 
     

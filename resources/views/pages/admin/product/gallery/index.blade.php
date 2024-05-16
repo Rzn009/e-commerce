@@ -53,6 +53,9 @@
                                     </button>
                                 </form>
                             </td>
+                            <td>
+                                <a href="" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                            </td>
                         </tr>
                     @empty
                         <tr>
