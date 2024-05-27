@@ -16,13 +16,14 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
+            $table->string('slug');
             $table->string('email');
             $table->string('phone');
             $table->string('addres');
-            $table->string('courier');
-            $table->string('payment');
-            $table->string('payment_url');
-            $table->string('status');
+            $table->string('courier')->nullable();
+            $table->string('payment')->default('midtrans');
+            $table->string('payment_url')->nullable();
+            $table->string('status')->default('pending');
             $table->string('total_price');
             $table->timestamps();
         });

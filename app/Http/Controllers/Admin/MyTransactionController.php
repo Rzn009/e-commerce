@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\TransactionItem;
 use Illuminate\Http\Request;
 
 class MyTransactionController extends Controller
@@ -14,7 +15,8 @@ class MyTransactionController extends Controller
     public function index()
     {
         $myTransaction = Transaction::with(['user'])->where('user_id', auth()->user()->id)->get();
-        return view('pages.admin.my-transaction.index', compact('myTransaction'));
+        $transaction = Transaction::where('user_id', auth()->user()->id)->get();
+        return view('pages.admin.my-transaction.index', compact('myTransaction','transaction'));
     }
 
     /**
@@ -36,9 +38,10 @@ class MyTransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($name)
     {
-        //
+        $transactionItem = TransactionItem::with('product')->where('transaction_id','name',$name)->get();
+        return view('pages.admin.my-transaction.show', compact('transactionItem'));
     }
 
     /**
@@ -63,5 +66,12 @@ class MyTransactionController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    
+    public function showDataBySlugAndId($slug, $id)
+    {
+        $transaction = Transaction::where('slug', $slug)->where('id', $id)->firstOrFail();
+
+        return view('pages.admin.my-transaction.show', compact('transaction'));
     }
 }

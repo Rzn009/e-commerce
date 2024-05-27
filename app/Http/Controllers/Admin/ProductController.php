@@ -17,6 +17,7 @@ class ProductController extends Controller
     {
         $category = Category::latest()->get();
         $product = Product::select('id', 'name', 'price', 'category_id')->get();
+
         return view('pages.admin.product.index', compact('product', 'category'));
     }
 

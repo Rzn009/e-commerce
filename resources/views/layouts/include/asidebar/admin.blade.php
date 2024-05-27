@@ -10,7 +10,7 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item ">
-            <a class="nav-link " href="{{ route('admin.listUser') }}">
+            <a class="nav-link " href="{{ route('admin.list-user') }}">
                 <i class="bi bi-list"></i>
                 <span>list user</span>
             </a>

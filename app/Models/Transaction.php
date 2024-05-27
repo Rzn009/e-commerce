@@ -15,6 +15,7 @@ class Transaction extends Model
         'transaction_id',
         'user_id',
         'name',
+        'slug',
         'email',
         'phone',
         'addres',

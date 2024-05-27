@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +11,10 @@ use Illuminate\Support\Facades\Hash;
 class Dashboard extends Controller
 {
     public function index() {
-        return view('pages.user.index');
+        $pending = Transaction::where('user_id', auth()->user()->id)->where('status','Pending')->count();
+        $expired = Transaction::where('user_id', auth()->user()->id)->where('status','expired')->count();
+        $settlement = Transaction::where('user_id', auth()->user()->id)->where('status','settlement')->count();        
+        return view('pages.user.index', compact('pending','expired','settlement'));
     }
     public function listUser ()
     {
